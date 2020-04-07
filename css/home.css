@@ -157,8 +157,8 @@ body {
 }
 
 .anoesis {
-  border-style: solid;
-  border-width: 1px;
+  border-style: none;
+  border-width: 0px;
   border-radius: 12px;
   text-align: left;
   background-color: white;

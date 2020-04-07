@@ -14,7 +14,6 @@ var blendMode2 = [];
 var blendMode3 = [];
 
 let div, divWidth, divHeight, posX, posY;
-
 let imgW, imgH;
 
 function preload() {
@@ -23,13 +22,9 @@ function preload() {
   divHeight = div.clientHeight;
   posX = div.offsetLeft;
   posY = div.offsetTop;
-
-
   pos = createVector(random(divWidth-180), random(divHeight-180)); //starting point ***
   vel = createVector(1,1); //velocity
-  if(windowWidth > 768){
-    newImg();
-  }
+  newImg();
 }
 
 function setup() {
@@ -54,8 +49,6 @@ function draw() {
   pos.x = pos.x + vel.x;
   pos.y = pos.y + vel.y;
   initialize();
-
-
 }
 
 function initialize() {
@@ -82,9 +75,13 @@ function resize() {
 }
 
 function newImg() {
-  randomImageDos = random(images);
-  img = createImg(randomImageDos);
-  initialize();
+  if(windowWidth > 768){
+    randomImageDos = random(images);
+    img = createImg(randomImageDos);
+    initialize();
+  } else {
+    img.hide();
+  }
 }
 
 function keyPressed(){
@@ -154,9 +151,7 @@ function bounceY2(){
 }
 
 function windowResized() {
-  canvas = resizeCanvas(divWidth, divHeight);
-  canvas.parent("anoesis");
-
-  img.position(posX+pos.x, posY+pos.y);
-  image(img, pos.x, pos.y);
+  img.hide();
+  clear();
+  preload();
 }

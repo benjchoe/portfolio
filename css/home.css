@@ -31,7 +31,7 @@
     margin-bottom: 15px;
   }
   .content-icon{
-    height:35px;
+    max-width:35px;
   }
   .content-header-text {
     margin-left: 50px;
@@ -47,7 +47,7 @@
     font-size: .9rem;
   }
   .content-icon{
-    height:40px;
+    max-width:40px;
   }
   .content-header-text {
     margin-left: 60px;
@@ -99,6 +99,9 @@
     height:420px;
     float:right;
   }
+  .sticky {
+    position: static;
+  }
 }
 
 @media (min-width: 1016px) {
@@ -106,13 +109,17 @@
     font-size: 1rem;
   }
   .content-icon{
-    height:50px;
+    max-width:55px;
   }
   .content-header-text {
     margin-left: 75px;
   }
   .anoesis {
     height:389px;
+  }
+  .sticky {
+    position: -webkit-sticky;
+    position: sticky;
   }
 }
 
@@ -146,6 +153,7 @@ body {
   border-width: 1px;
   border-radius: 12px;
   text-align: left;
+  background-color: #222;
 }
 
 .anoesis {
@@ -266,7 +274,5 @@ a:hover {
 }
 
 .sticky {
-  position: -webkit-sticky;
-  position: sticky;
   top:20px;
 }

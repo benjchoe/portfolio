@@ -1,6 +1,5 @@
 // ugh.rip
 // ben choe
-
 let x, y;
 let img;
 let vel, pos;
@@ -28,7 +27,9 @@ function preload() {
 
   pos = createVector(random(divWidth-180), random(divHeight-180)); //starting point ***
   vel = createVector(1,1); //velocity
-  newImg();
+  if(windowWidth > 768){
+    newImg();
+  }
 }
 
 function setup() {
@@ -47,10 +48,14 @@ function setup() {
                   //y = random(height);
 }
 
+
+
 function draw() {
   pos.x = pos.x + vel.x;
   pos.y = pos.y + vel.y;
   initialize();
+
+
 }
 
 function initialize() {

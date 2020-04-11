@@ -34,6 +34,7 @@ function preload() {
     pos = createVector(random(100), random(600)); //starting point ***
     vel = createVector(1,1); //velocity
   }
+  newImg();
 }
 
 function setup() {
@@ -49,7 +50,7 @@ function setup() {
   } else {
     canvas.parent("resize");
   }
-  newImg();
+
   //pos.history = [];
   //xspeed = 1;
   //yspeed = 1;
@@ -76,7 +77,8 @@ function initialize() {
 
 
   if(imgW>181){
-    setTimeout(bounceY,500);
+    setTimeout(bounceX,1000);
+    setTimeout(bounceY,1000);
   }  else if (imgW>0 && imgW<=180){
     image(img, pos.x, pos.y); //tracing frames
     bounceX();

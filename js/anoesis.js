@@ -63,17 +63,18 @@ function draw() {
   pos.x = pos.x + vel.x;
   pos.y = pos.y + vel.y;
   initialize();
+
 }
 
 function initialize() {
+  resize();
   if (windowWidth > 768){
     img.position(posX+pos.x, posY+pos.y); // initialize photo --\
   } else {
     img.position(posX+pos.x, posY+pos.y); // initialize photo --\
   }
-  resize();
   if(imgW>181 || imgW == 0){
-    setTimeout(bounceY,500);
+    setTimeout(bounceY,1000);
   }  else if (imgW>0 & imgW<=180){
     image(img, pos.x, pos.y); //tracing frames
     bounceX();
@@ -100,7 +101,6 @@ function resize() {
 function newImg() {
     randomImageDos = random(images);
     img = createImg(randomImageDos);
-
 }
 
 function keyPressed(){
@@ -115,7 +115,7 @@ function keyPressed(){
 function mouseClicked(){ // resets everything
     removeElements();
     //clear();
-    setTimeout(newImg,1000);
+    newImg();
     blendMode(random(blendMode1));
     blendMode(random(blendMode2));
     blendMode(random(blendMode3));

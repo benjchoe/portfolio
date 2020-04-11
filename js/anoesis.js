@@ -17,30 +17,44 @@ let div, divWidth, divHeight, posX, posY;
 let imgW, imgH;
 
 function preload() {
-  div = document.getElementById("anoesis");
-  divWidth = div.clientWidth;
-  divHeight = div.clientHeight;
-  posX = div.offsetLeft;
-  posY = div.offsetTop;
-  pos = createVector(random(divWidth-180), random(divHeight-180)); //starting point ***
-  vel = createVector(1,1); //velocity
-  newImg();
+  if (windowWidth > 768) {
+    div = document.getElementById("anoesis");
+    divWidth = div.clientWidth;
+    divHeight = div.clientHeight;
+    posX = div.offsetLeft;
+    posY = div.offsetTop;
+    pos = createVector(random(divWidth-180), random(divHeight-180)); //starting point ***
+    vel = createVector(1,1); //velocity
+  } else {
+    div = document.getElementById("resize");
+    divWidth = div.clientWidth;
+    divHeight = div.clientHeight;
+    posX = div.offsetLeft;
+    posY = div.offsetTop;
+    pos = createVector(random(100), random(600)); //starting point ***
+    vel = createVector(1,1); //velocity
+  }
 }
 
 function setup() {
+  blendMode1 = [ADD, DARKEST, LIGHTEST, DIFFERENCE, EXCLUSION, SCREEN, OVERLAY, BLEND, HARD_LIGHT, SOFT_LIGHT, DODGE, BURN];
+  blendMode2 = [ADD, DARKEST, LIGHTEST, DIFFERENCE, EXCLUSION, SCREEN, OVERLAY, BLEND, HARD_LIGHT, SOFT_LIGHT, DODGE, BURN];
+  blendMode3 = [ADD, DARKEST, LIGHTEST, DIFFERENCE, EXCLUSION, SCREEN, OVERLAY, BLEND, HARD_LIGHT, SOFT_LIGHT, DODGE, BURN];
+  blendMode(random(blendMode1));
+  blendMode(random(blendMode2));
+  blendMode(random(blendMode3));
   var canvas = createCanvas(divWidth, divHeight);
-  canvas.parent("anoesis");
-                  blendMode1 = [ADD, DARKEST, LIGHTEST, DIFFERENCE, EXCLUSION, SCREEN, OVERLAY, BLEND, HARD_LIGHT, SOFT_LIGHT, DODGE, BURN];
-                  blendMode2 = [ADD, DARKEST, LIGHTEST, DIFFERENCE, EXCLUSION, SCREEN, OVERLAY, BLEND, HARD_LIGHT, SOFT_LIGHT, DODGE, BURN];
-                  blendMode3 = [ADD, DARKEST, LIGHTEST, DIFFERENCE, EXCLUSION, SCREEN, OVERLAY, BLEND, HARD_LIGHT, SOFT_LIGHT, DODGE, BURN];
-                  blendMode(random(blendMode1));
-                  blendMode(random(blendMode2));
-                  blendMode(random(blendMode3));
-                  //pos.history = [];
-                  //xspeed = 1;
-                  //yspeed = 1;
-                  //x = random(width);
-                  //y = random(height);
+  if (windowWidth > 768){
+    canvas.parent("anoesis");
+  } else {
+    canvas.parent("resize");
+  }
+  newImg();
+  //pos.history = [];
+  //xspeed = 1;
+  //yspeed = 1;
+  //x = random(width);
+  //y = random(height);
 }
 
 
@@ -49,11 +63,18 @@ function draw() {
   pos.x = pos.x + vel.x;
   pos.y = pos.y + vel.y;
   initialize();
+  resize();
 }
 
 function initialize() {
-  img.position(posX+pos.x, posY+pos.y); // initialize photo --\
-  resize();
+
+  if (windowWidth > 768){
+    img.position(posX+pos.x, posY+pos.y); // initialize photo --\
+  } else {
+    img.position(posX+pos.x, posY+pos.y); // initialize photo --\
+  }
+
+
   if(imgW>181){
     setTimeout(bounceY,500);
   }  else if (imgW>0 && imgW<=180){
@@ -68,20 +89,20 @@ function initialize() {
 }
 
 function resize() {
-  img.style('max-width','180px');
-  img.style('border', '5px solid white');
+  if(windowWidth > 768) {
+    img.style('max-width','180px');
+  }
+  else {
+    img.style('max-width','90px');
+  }
+  img.style('border', '3px solid white');
   imgW = img.width;
   imgH = img.height;
 }
 
 function newImg() {
-  if(windowWidth > 768){
     randomImageDos = random(images);
     img = createImg(randomImageDos);
-    initialize();
-  } else {
-    img.hide();
-  }
 }
 
 function keyPressed(){

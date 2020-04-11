@@ -1,6 +1,6 @@
 @media (min-width: 0px) {
   html,body {
-    font-size: .8rem;
+    font-size: 11px;
   }
   .nav-icons .nav-link {
     max-height: 20px;
@@ -23,9 +23,6 @@
     width: auto;
     float: left;
   }
-  .anoesis {
-    display: none;
-  }
   .col, .card {
     margin-right: 0px;
     margin-bottom: 15px;
@@ -39,6 +36,16 @@
   .card-img-top {
     height: 190px;
     object-fit: cover;
+  }
+  .resize {
+    background-color: white;
+    margin-bottom: 15px;
+
+    width: 100%;
+    height:200px;
+    float:right;
+    border-radius: 12px;
+    text-align: left;
   }
 }
 
@@ -92,6 +99,9 @@
   }
   .row {
     justify-content: space-between;
+  }
+  .resize {
+    display:none;
   }
   .anoesis {
     display: flex;
@@ -153,7 +163,6 @@ body {
   border-width: 1px;
   border-radius: 12px;
   text-align: left;
-  background-color: #222;
 }
 
 .anoesis {

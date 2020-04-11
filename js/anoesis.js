@@ -62,19 +62,14 @@ function setup() {
 function draw() {
   resize();
   pos.x = pos.x + vel.x;
-  pos.y = pos.y + vel.y;
+  pos.y = pos.y + vel.y
+  img.position(posX+pos.x, posY+pos.y); // initialize photo --\
 
-  if(imgW>0 & imgW<=180){
+  if(imgW>0 && imgW<=180){
     image(img, pos.x, pos.y); //tracing frames
     bounceX();
     bounceY();
     }
-
-  if (windowWidth > 768){
-    img.position(posX+pos.x, posY+pos.y); // initialize photo --\
-  } else {
-    img.position(posX+pos.x, posY+pos.y); // initialize photo --\
-  }
 
 }
 

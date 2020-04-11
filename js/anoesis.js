@@ -67,8 +67,7 @@ function draw() {
 
   if(imgW>0 && imgW<=180){
     image(img, pos.x, pos.y); //tracing frames
-    bounceX();
-    bounceY();
+    bounce();
     }
 
 }
@@ -108,7 +107,7 @@ function mouseClicked(){ // resets everything
     blendMode(random(blendMode3));
 }
 
-function bounceX() {
+function bounce() {
   if (pos.x >= divWidth - imgW) { // bounce x-axis
     vel.x = -vel.x;
     pos.x = divWidth - imgW;
@@ -122,24 +121,20 @@ function bounceX() {
     blendMode(random(blendMode2));
     blendMode(random(blendMode3));
   }
-}
 
-function bounceY(){
-
-    if (pos.y >= divHeight - imgH) { // bounce y-axis
-      vel.y = -vel.y;
-      pos.y = divHeight - imgH;
-      blendMode(random(blendMode1));
-      blendMode(random(blendMode2));
-      blendMode(random(blendMode3));
-    } else if (pos.y <= 0) {
-      vel.y = -vel.y;
-      pos.y = 0;
-      blendMode(random(blendMode1));
-      blendMode(random(blendMode2));
-      blendMode(random(blendMode3));
-    }
-
+  if (pos.y >= divHeight - imgH) { // bounce y-axis
+    vel.y = -vel.y;
+    pos.y = divHeight - imgH;
+    blendMode(random(blendMode1));
+    blendMode(random(blendMode2));
+    blendMode(random(blendMode3));
+  } else if (pos.y <= 0) {
+    vel.y = -vel.y;
+    pos.y = 0;
+    blendMode(random(blendMode1));
+    blendMode(random(blendMode2));
+    blendMode(random(blendMode3));
+  }
 }
 
 function windowResized() {

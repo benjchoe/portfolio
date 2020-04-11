@@ -61,14 +61,25 @@ function setup() {
 
 function draw() {
   resize();
+  bounceX();
   pos.x = pos.x + vel.x;
-  pos.y = pos.y + vel.y
-  img.position(posX+pos.x, posY+pos.y); // initialize photo --\
+  pos.y = pos.y + vel.y;
 
-  if(imgW>0 && imgW<=180){
+  if(imgW>0 & imgW<=180){
+    img.style('display','flex');
     image(img, pos.x, pos.y); //tracing frames
-    bounce();
-    }
+    bounceY();
+  } else  {
+    img.style('display','flex');
+    image(img, pos.x, pos.y); //tracing frames
+    bounceY2();
+  }
+
+  if (windowWidth > 768){
+    img.position(posX+pos.x, posY+pos.y); // initialize photo --\
+  } else {
+    img.position(posX+pos.x, posY+pos.y); // initialize photo --\
+  }
 
 }
 
@@ -107,7 +118,7 @@ function mouseClicked(){ // resets everything
     blendMode(random(blendMode3));
 }
 
-function bounce() {
+function bounceX() {
   if (pos.x >= divWidth - imgW) { // bounce x-axis
     vel.x = -vel.x;
     pos.x = divWidth - imgW;
@@ -121,20 +132,40 @@ function bounce() {
     blendMode(random(blendMode2));
     blendMode(random(blendMode3));
   }
+}
 
-  if (pos.y >= divHeight - imgH) { // bounce y-axis
-    vel.y = -vel.y;
-    pos.y = divHeight - imgH;
-    blendMode(random(blendMode1));
-    blendMode(random(blendMode2));
-    blendMode(random(blendMode3));
-  } else if (pos.y <= 0) {
-    vel.y = -vel.y;
-    pos.y = 0;
-    blendMode(random(blendMode1));
-    blendMode(random(blendMode2));
-    blendMode(random(blendMode3));
-  }
+function bounceY(){
+
+    if (pos.y >= divHeight - imgH) { // bounce y-axis
+      vel.y = -vel.y;
+      pos.y = divHeight - imgH;
+      blendMode(random(blendMode1));
+      blendMode(random(blendMode2));
+      blendMode(random(blendMode3));
+    } else if (pos.y <= 0) {
+      vel.y = -vel.y;
+      pos.y = 0;
+      blendMode(random(blendMode1));
+      blendMode(random(blendMode2));
+      blendMode(random(blendMode3));
+    }
+
+}
+
+function bounceY2(){
+    if (pos.y >= divHeight - imgW) { // bounce y-axis
+      vel.y = -vel.y;
+      pos.y = divHeight - imgH;
+      blendMode(random(blendMode1));
+      blendMode(random(blendMode2));
+      blendMode(random(blendMode3));
+    } else if (pos.y <= 0) {
+      vel.y = -vel.y;
+      pos.y = 0;
+      blendMode(random(blendMode1));
+      blendMode(random(blendMode2));
+      blendMode(random(blendMode3));
+    }
 }
 
 function windowResized() {

@@ -69,12 +69,11 @@ function draw() {
   pos.x = pos.x + vel.x;
   pos.y = pos.y + vel.y;
 
-  if(imgW<=90 & imgW>0){
+  if(imgW<=180 & imgW>0){
     bounce();
     image(img, pos.x, pos.y); //tracing frames
   } else if (imgW==0){
-    bounce2();
-    image(img, pos.x, pos.y); //tracing frames
+
   }
 }
 
@@ -168,10 +167,6 @@ function bounce2(){
     blendMode(random(blendMode1));
     blendMode(random(blendMode2));
     blendMode(random(blendMode3));
-  }
-  if (pos.x >= divWidth || pos.y >= divHeight || pos.x<0 || pos.y<0){
-    clear();
-    newImg();
   }
 }
 

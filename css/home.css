@@ -40,7 +40,6 @@
   .resize {
     background-color: white;
     margin-bottom: 15px;
-
     width: 100%;
     height:200px;
     float:right;
@@ -100,9 +99,6 @@
   .row {
     justify-content: space-between;
   }
-  .resize {
-    display:none;
-  }
   .anoesis {
     display: flex;
     width: 52%;
@@ -138,7 +134,9 @@
 }
 
 
-
+.resize {
+  display:none;
+}
 
 html,body {
   height: auto;

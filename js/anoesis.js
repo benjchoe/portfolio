@@ -147,22 +147,6 @@ function bounceY(){
 
 }
 
-function bounceY2(){
-    if (pos.y >= divHeight - imgW) { // bounce y-axis
-      vel.y = -vel.y;
-      pos.y = divHeight - imgH;
-      blendMode(random(blendMode1));
-      blendMode(random(blendMode2));
-      blendMode(random(blendMode3));
-    } else if (pos.y <= 0) {
-      vel.y = -vel.y;
-      pos.y = 0;
-      blendMode(random(blendMode1));
-      blendMode(random(blendMode2));
-      blendMode(random(blendMode3));
-    }
-}
-
 function windowResized() {
   img.hide();
   clear();

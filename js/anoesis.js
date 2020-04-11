@@ -69,11 +69,12 @@ function draw() {
   pos.x = pos.x + vel.x;
   pos.y = pos.y + vel.y;
 
-  if(imgW<=180 & imgW>0){
+  if(imgW<=90 & imgW>0){
     bounce();
     image(img, pos.x, pos.y); //tracing frames
   } else if (imgW==0){
-
+    bounce2();
+    image(img, pos.x, pos.y); //tracing frames
   }
 }
 
@@ -113,7 +114,6 @@ function mouseClicked(){ // resets everything
 }
 
 function bounce() {
-  console.log(imgW, imgH);
   if (pos.x >= divWidth - imgW) { // bounce x-axis
     vel.x = -vel.x;
     pos.x = divWidth - imgW;
@@ -143,7 +143,36 @@ function bounce() {
 }
 
 function bounce2(){
-
+  if (pos.x >= divWidth - 90) { // bounce x-axis
+    vel.x = -vel.x;
+    pos.x = divWidth - 90;
+    blendMode(random(blendMode1));
+    blendMode(random(blendMode2));
+    blendMode(random(blendMode3));
+  } else if (pos.x <= 0) {
+    vel.x = -vel.x;
+    pos.x = 0;
+    blendMode(random(blendMode1));
+    blendMode(random(blendMode2));
+    blendMode(random(blendMode3));
+  }
+  if (pos.y >= divHeight - 90) { // bounce y-axis
+    vel.y = -vel.y;
+    pos.y = divHeight - 90;
+    blendMode(random(blendMode1));
+    blendMode(random(blendMode2));
+    blendMode(random(blendMode3));
+  } else if (pos.y <= 0) {
+    vel.y = -vel.y;
+    pos.y = 0;
+    blendMode(random(blendMode1));
+    blendMode(random(blendMode2));
+    blendMode(random(blendMode3));
+  }
+  if (pos.x >= divWidth || pos.y >= divHeight || pos.x<0 || pos.y<0){
+    clear();
+    newImg();
+  }
 }
 
 function windowResized() {

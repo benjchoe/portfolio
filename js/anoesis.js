@@ -50,7 +50,6 @@ function setup() {
   } else {
     canvas.parent("resize");
   }
-
   //pos.history = [];
   //xspeed = 1;
   //yspeed = 1;
@@ -64,22 +63,19 @@ function draw() {
   pos.x = pos.x + vel.x;
   pos.y = pos.y + vel.y;
   initialize();
-  resize();
+
 }
 
 function initialize() {
-
   if (windowWidth > 768){
     img.position(posX+pos.x, posY+pos.y); // initialize photo --\
   } else {
     img.position(posX+pos.x, posY+pos.y); // initialize photo --\
   }
-
-
-  if(imgW>181){
-    setTimeout(bounceX,1000);
-    setTimeout(bounceY,1000);
-  }  else if (imgW>0 && imgW<=180){
+  resize();
+  if(imgW>181 || imgW == 0){
+    setTimeout(bounceY,2000);
+  }  else if (imgW>0 & imgW<=180){
     image(img, pos.x, pos.y); //tracing frames
     bounceX();
     bounceY();

@@ -31,7 +31,7 @@ function preload() {
     divHeight = div.clientHeight;
     posX = div.offsetLeft;
     posY = div.offsetTop;
-    pos = createVector(random(100), random(600)); //starting point ***
+    pos = createVector(random(divWidth), random(divHeight)); //starting point ***
     vel = createVector(1,1); //velocity
   }
   newImg();
@@ -60,30 +60,22 @@ function setup() {
 
 
 function draw() {
+  resize();
   pos.x = pos.x + vel.x;
   pos.y = pos.y + vel.y;
-  initialize();
 
-}
+  if(imgW>0 & imgW<=180){
+    image(img, pos.x, pos.y); //tracing frames
+    bounceX();
+    bounceY();
+    }
 
-function initialize() {
-  resize();
   if (windowWidth > 768){
     img.position(posX+pos.x, posY+pos.y); // initialize photo --\
   } else {
     img.position(posX+pos.x, posY+pos.y); // initialize photo --\
   }
-  if(imgW>180){
-    setTimeout(bounceY,1000);
-  }  else if (imgW>0 & imgW<=180){
-    image(img, pos.x, pos.y); //tracing frames
-    bounceX();
-    bounceY();
-    }
-  else if (imgW<=0){
-    bounceX();
-    bounceY2();
-  }
+
 }
 
 function resize() {
@@ -138,6 +130,7 @@ function bounceX() {
 }
 
 function bounceY(){
+
     if (pos.y >= divHeight - imgH) { // bounce y-axis
       vel.y = -vel.y;
       pos.y = divHeight - imgH;
@@ -151,6 +144,7 @@ function bounceY(){
       blendMode(random(blendMode2));
       blendMode(random(blendMode3));
     }
+
 }
 
 function bounceY2(){

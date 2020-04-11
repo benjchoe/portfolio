@@ -105,6 +105,10 @@
     height:420px;
     float:right;
   }
+
+  .resize {
+    display:none;
+  }
   .sticky {
     position: static;
   }
@@ -131,11 +135,6 @@
 
 @media (min-width: 1200px) {
 
-}
-
-
-.resize {
-  display:none;
 }
 
 html,body {

@@ -73,7 +73,7 @@ function initialize() {
   } else {
     img.position(posX+pos.x, posY+pos.y); // initialize photo --\
   }
-  if(imgW>181 || imgW == 0){
+  if(imgW>180){
     setTimeout(bounceY,1000);
   }  else if (imgW>0 & imgW<=180){
     image(img, pos.x, pos.y); //tracing frames

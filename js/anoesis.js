@@ -84,7 +84,6 @@ function resize() {
   else {
     img.style('max-width','90px');
   }
-  img.style('border', '3px solid white');
   imgW = img.width;
   imgH = img.height;
 }

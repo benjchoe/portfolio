@@ -163,11 +163,11 @@ body {
 }
 
 .anoesis {
-  border-style: none;
-  border-width: 0px;
-  border-radius: 12px;
   text-align: left;
   background-color: white;
+  border-radius: 12px;
+  border-style: none;
+  border-width: 0px;
 }
 
 .contentsticky {

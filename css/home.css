@@ -105,6 +105,12 @@
     height:420px;
     float:right;
   }
+  .subanoesis {
+    display: flex;
+    width: 52%;
+    height:420px;
+    float:right;
+  }
 
   .resize {
     display:none;
@@ -125,6 +131,9 @@
     margin-left: 75px;
   }
   .anoesis {
+    height:389px;
+  }
+  .subanoesis {
     height:389px;
   }
   .sticky {
@@ -163,6 +172,13 @@ body {
 }
 
 .anoesis {
+  text-align: left;
+  border-radius: 12px;
+  border-style: none;
+  border-width: 0px;
+}
+
+.subanoesis {
   text-align: left;
   background-color: white;
   border-radius: 12px;
